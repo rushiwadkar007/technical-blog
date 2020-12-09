@@ -1,0 +1,27 @@
+<!Doctype html>
+<html xmlns:th="http://thymeleaf.org">
+
+    <head th:replace="layout :: site-head">
+        <title>Spring MVC Application - Login</title>
+    </head>
+
+    <header th:replace="layout ::  logged-out "></header>
+
+    <h2>Please Login</h2>
+
+
+        <!--User model -  submit button will send the user information packaged in a User.java object to the
+        controller method -->
+        <!--th:object specifies an object as which the form data will be submitted.-->
+        <!--POST method is used to send a sensitive information while GET type of requests are part of URL-->
+    <form method="post" th:object="${User}">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <input type="submit" value="Login"/> <!--field to create login button-->
+        <!--Now, the loginUser controller method is supposed to listen to the POST requests at the users/login
+        URL, i.e., this method is invoked when a user clicks on the Submit button on the login page. Hence,
+        you will have to specify the HTTP request method that this controller method corresponds to as POST.-->
+    </form>
+</html>
